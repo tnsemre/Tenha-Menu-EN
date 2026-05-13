@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TENHA Wine & Dine – Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C8922A;
+    --gold-light: #E2B55A;
+    --cream: #F7F2EB;
+    --dark: #1A1612;
+    --charcoal: #2C2622;
+    --text: #3A3330;
+    --muted: #7A6E68;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--cream);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    background-color: var(--dark);
+    padding: 48px 24px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(200,146,42,0.18) 0%, transparent 70%);
+  }
+
+  .header-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(42px, 10vw, 72px);
+    letter-spacing: 0.25em;
+    color: #fff;
+    position: relative;
+  }
+
+  .header-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-top: 6px;
+    position: relative;
+  }
+
+  .header-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 20px auto 0;
+    position: relative;
+  }
+
+  /* WRAPPER */
+  .wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* SECTION */
+  .section {
+    padding-top: 52px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section:nth-child(1) { animation-delay: 0.05s; }
+  .section:nth-child(2) { animation-delay: 0.15s; }
+  .section:nth-child(3) { animation-delay: 0.25s; }
+  .section:nth-child(4) { animation-delay: 0.35s; }
+  .section:nth-child(5) { animation-delay: 0.45s; }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(28px, 6vw, 38px);
+    color: var(--dark);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .section-rule {
+    width: 48px;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 28px;
+  }
+
+  /* DISH ITEM */
+  .dish {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+  }
+
+  .dish:last-child { border-bottom: none; }
+
+  .dish-left { flex: 1; }
+
+  .dish-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin-bottom: 3px;
+  }
+
+  .dish-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .dish-price {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .price-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--dark);
+    white-space: nowrap;
+  }
+
+  .price-note {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-transform: uppercase;
+    display: block;
+    margin-top: 1px;
+  }
+
+  /* SIDES GRID */
+  .sides-header {
+    padding: 14px 0 8px;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+  }
+
+  .sides-header .dish-name { margin-bottom: 3px; }
+  .sides-header .dish-desc { font-size: 14px; }
+
+  .sides-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .side-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+  }
+
+  .side-item:nth-last-child(-n+2) { border-bottom: none; }
+
+  .side-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+  }
+
+  .side-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--dark);
+    margin-left: 12px;
+  }
+
+  /* MENU HIGHLIGHT BOX */
+  .menu-box {
+    background: var(--dark);
+    color: var(--cream);
+    border-radius: 2px;
+    padding: 32px 28px;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .menu-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 0% 0%, rgba(200,146,42,0.2) 0%, transparent 60%);
+  }
+
+  .menu-box-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .menu-box-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 10px;
+  }
+
+  .menu-box-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: rgba(247,242,235,0.75);
+    line-height: 1.65;
+    max-width: 520px;
+    position: relative;
+  }
+
+  .menu-box-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: #fff;
+    white-space: nowrap;
+    text-align: right;
+    position: relative;
+  }
+
+  .menu-box-price span {
+    display: block;
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-top: 2px;
+    font-weight: 400;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--dark);
+    text-align: center;
+    padding: 32px 20px;
+    margin-top: 60px;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .footer-note {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 8px;
+  }
+
+  @media (max-width: 500px) {
+    .sides-grid { grid-template-columns: 1fr; }
+    .side-item:last-child { border-bottom: none; }
+    .side-item:nth-last-child(2) { border-bottom: 1px solid rgba(0,0,0,0.07); }
+    .menu-box-top { flex-direction: column; gap: 12px; }
+    .menu-box-price { text-align: left; font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-logo">TENHA</div>
+  <div class="header-sub">Wine &amp; Dine · Vienna</div>
+  <div class="header-divider"></div>
+</header>
+
+<div class="wrapper">
+
+  <!-- APPETIZER -->
+  <div class="section">
+    <h2 class="section-title">Appetizer</h2>
+    <div class="section-rule"></div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Étagère per Person</div>
+        <div class="dish-desc">Mezze selection from our vitrine</div>
+      </div>
+      <div class="dish-price">
+        <div class="price-main">€ 22</div>
+        <span class="price-note">per person</span>
+      </div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Chili Prawns</div>
+        <div class="dish-desc">With garlic and fresh herbs</div>
+      </div>
+      <div class="dish-price"><div class="price-main">€ 24</div></div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Scallops</div>
+        <div class="dish-desc">Red beet risotto, walnut brittle</div>
+      </div>
+      <div class="dish-price"><div class="price-main">€ 24</div></div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Carpaccio</div>
+        <div class="dish-desc">Trentino salt beef, artichoke salad, parmesan &amp; spring onion</div>
+      </div>
+      <div class="dish-price"><div class="price-main">€ 20</div></div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Octopus Carpaccio</div>
+        <div class="dish-desc">Milto salad with pomegranate syrup</div>
+      </div>
+      <div class="dish-price"><div class="price-main">€ 22</div></div>
+    </div>
+  </div>
+
+  <!-- DAILY DEAL -->
+  <div class="section">
+    <h2 class="section-title">Daily Deal</h2>
+    <div class="section-rule"></div>
+
+    <div class="sides-header">
+      <div class="dish-name">Whole Fish</div>
+      <div class="dish-desc">Served with your choice of fine sides</div>
+    </div>
+
+    <div class="sides-grid">
+      <div class="side-item">
+        <span class="side-name">Daily Risotto</span>
+        <span class="side-price">€ 8</span>
+      </div>
+      <div class="side-item">
+        <span class="side-name">Rosemary Potatoes</span>
+        <span class="side-price">€ 6</span>
+      </div>
+      <div class="side-item">
+        <span class="side-name">Leaf Spinach</span>
+        <span class="side-price">€ 7</span>
+      </div>
+      <div class="side-item">
+        <span class="side-name">Truffle Mash</span>
+        <span class="side-price">€ 8</span>
+      </div>
+      <div class="side-item">
+        <span class="side-name">Polenta</span>
+        <span class="side-price">€ 7</span>
+      </div>
+      <div class="side-item">
+        <span class="side-name">Mixed Leaf Salad</span>
+        <span class="side-price">€ 6.5</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN DISHES -->
+  <div class="section">
+    <h2 class="section-title">Main Dishes</h2>
+    <div class="section-rule"></div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Sea Bass Fillet</div>
+        <div class="dish-desc">Spinach potatoes, sheep's cheese</div>
+      </div>
+      <div class="dish-price"><div class="price-main">€ 34</div></div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Black Tiger Prawns</div>
+        <div class="dish-desc">Truffle mash, balsamic tomatoes</div>
+      </div>
+      <div class="dish-price"><div class="price-main">€ 36</div></div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Rack of Lamb</div>
+        <div class="dish-desc">Zucchini and corn risotto</div>
+      </div>
+      <div class="dish-price"><div class="price-main">€ 36</div></div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Atlantic Octopus</div>
+        <div class="dish-desc">Fregola Sarda, aioli</div>
+      </div>
+      <div class="dish-price"><div class="price-main">€ 34</div></div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Venison Saddle</div>
+        <div class="dish-desc">Pan-fried curd dumplings, leek &amp; caper vegetables</div>
+      </div>
+      <div class="dish-price"><div class="price-main">€ 38</div></div>
+    </div>
+  </div>
+
+  <!-- MENUS -->
+  <div class="section">
+    <h2 class="section-title">Menus</h2>
+    <div class="section-rule"></div>
+
+    <div class="menu-box">
+      <div class="menu-box-top">
+        <div>
+          <div class="menu-box-name">TENHA Chaostable Menu</div>
+        </div>
+        <div class="menu-box-price">
+          € 76
+          <span>per person</span>
+        </div>
+      </div>
+      <p class="menu-box-desc">
+        We begin with appetizers from our vitrine, followed by plates and sharing dishes of our specialties. A selection of our desserts brings the sweet finale. All dishes are shared — the Chaostable Menu is ordered for the entire table.
+      </p>
+    </div>
+  </div>
+
+  <!-- DESSERT -->
+  <div class="section">
+    <h2 class="section-title">Dessert</h2>
+    <div class="section-rule"></div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Étagère</div>
+        <div class="dish-desc">Sweet Dream — price for 2 persons</div>
+      </div>
+      <div class="dish-price"><div class="price-main">€ 22</div></div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Gerry's Basil Ice Cream</div>
+        <div class="dish-desc">Plum compote, peanut</div>
+      </div>
+      <div class="dish-price"><div class="price-main">€ 9</div></div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Chocolate Art</div>
+        <div class="dish-desc">Mango sorbet</div>
+      </div>
+      <div class="dish-price"><div class="price-main">€ 9</div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">TENHA</div>
+  <div class="footer-note">Wine &amp; Dine · Vienna · tenha.at</div>
+</footer>
+
+</body>
+</html>
