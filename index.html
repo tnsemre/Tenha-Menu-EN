@@ -10,292 +10,51 @@
   :root {
     --gold: #C8922A;
     --gold-light: #E2B55A;
-    --cream: #F7F2EB;
+    --cream: #ffffff;
     --dark: #1A1612;
     --charcoal: #2C2622;
     --text: #3A3330;
     --muted: #7A6E68;
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background-color: #ffffff; color: var(--text); font-family: 'Montserrat', sans-serif; font-weight: 300; min-height: 100vh; }
 
-  body {
-    background-color: var(--cream);
-    color: var(--text);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    min-height: 100vh;
-  }
+  .header { background-color: #ffffff; padding: 36px 24px 28px; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .header img { width: clamp(160px, 42vw, 240px); height: auto; display: block; margin: 0 auto; }
 
-  /* HEADER */
-  .header {
-    background-color: var(--dark);
-    padding: 48px 24px 40px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
+  .wrapper { max-width: 780px; margin: 0 auto; padding: 0 20px 60px; }
 
-  .header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(200,146,42,0.18) 0%, transparent 70%);
-  }
+  .section { padding-top: 52px; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(28px, 6vw, 38px); color: var(--dark); letter-spacing: 0.02em; line-height: 1; margin-bottom: 6px; }
+  .section-rule { width: 48px; height: 2px; background: var(--gold); margin-bottom: 28px; }
 
-  .header-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(42px, 10vw, 72px);
-    letter-spacing: 0.25em;
-    color: #fff;
-    position: relative;
-  }
-
-  .header-sub {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 11px;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    margin-top: 6px;
-    position: relative;
-  }
-
-  .header-divider {
-    width: 60px;
-    height: 1px;
-    background: var(--gold);
-    margin: 20px auto 0;
-    position: relative;
-  }
-
-  /* WRAPPER */
-  .wrapper {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 0 20px 60px;
-  }
-
-  /* SECTION */
-  .section {
-    padding-top: 52px;
-    animation: fadeUp 0.6s ease both;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .section:nth-child(1) { animation-delay: 0.05s; }
-  .section:nth-child(2) { animation-delay: 0.15s; }
-  .section:nth-child(3) { animation-delay: 0.25s; }
-  .section:nth-child(4) { animation-delay: 0.35s; }
-  .section:nth-child(5) { animation-delay: 0.45s; }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: clamp(28px, 6vw, 38px);
-    color: var(--dark);
-    letter-spacing: 0.02em;
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-
-  .section-rule {
-    width: 48px;
-    height: 2px;
-    background: var(--gold);
-    margin-bottom: 28px;
-  }
-
-  /* DISH ITEM */
-  .dish {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.07);
-  }
-
+  .dish { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 14px 0; border-bottom: 1px solid rgba(0,0,0,0.07); }
   .dish:last-child { border-bottom: none; }
-
   .dish-left { flex: 1; }
+  .dish-name { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark); margin-bottom: 3px; }
+  .dish-desc { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: var(--muted); line-height: 1.4; }
+  .dish-price { text-align: right; flex-shrink: 0; }
+  .price-main { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 17px; color: var(--dark); white-space: nowrap; }
+  .price-note { font-size: 10px; letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase; display: block; margin-top: 1px; }
 
-  .dish-name {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--dark);
-    margin-bottom: 3px;
-  }
-
-  .dish-desc {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 15px;
-    color: var(--muted);
-    line-height: 1.4;
-  }
-
-  .dish-price {
-    text-align: right;
-    flex-shrink: 0;
-  }
-
-  .price-main {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
-    font-size: 17px;
-    color: var(--dark);
-    white-space: nowrap;
-  }
-
-  .price-note {
-    font-size: 10px;
-    letter-spacing: 0.06em;
-    color: var(--muted);
-    text-transform: uppercase;
-    display: block;
-    margin-top: 1px;
-  }
-
-  /* SIDES GRID */
-  .sides-header {
-    padding: 14px 0 8px;
-    border-bottom: 1px solid rgba(0,0,0,0.07);
-  }
-
-  .sides-header .dish-name { margin-bottom: 3px; }
-  .sides-header .dish-desc { font-size: 14px; }
-
-  .sides-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-  }
-
-  .side-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.07);
-  }
-
+  .sides-header { padding: 14px 0 8px; border-bottom: 1px solid rgba(0,0,0,0.07); }
+  .sides-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .side-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.07); }
   .side-item:nth-last-child(-n+2) { border-bottom: none; }
+  .side-name { font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--charcoal); }
+  .side-price { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 15px; color: var(--dark); margin-left: 12px; }
 
-  .side-name {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--charcoal);
-  }
+  .menu-box { background: var(--dark); color: var(--cream); border-radius: 2px; padding: 32px 28px; margin-top: 10px; position: relative; overflow: hidden; }
+  .menu-box::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 0% 0%, rgba(200,146,42,0.2) 0%, transparent 60%); }
+  .menu-box-top { display: flex; justify-content: space-between; align-items: flex-start; position: relative; }
+  .menu-box-name { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 10px; }
+  .menu-box-desc { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: rgba(247,242,235,0.75); line-height: 1.65; max-width: 520px; position: relative; }
+  .menu-box-price { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 28px; color: #fff; white-space: nowrap; text-align: right; position: relative; }
+  .menu-box-price span { display: block; font-size: 10px; font-family: 'Montserrat', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-light); margin-top: 2px; font-weight: 400; }
 
-  .side-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
-    font-size: 15px;
-    color: var(--dark);
-    margin-left: 12px;
-  }
-
-  /* MENU HIGHLIGHT BOX */
-  .menu-box {
-    background: var(--dark);
-    color: var(--cream);
-    border-radius: 2px;
-    padding: 32px 28px;
-    margin-top: 10px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .menu-box::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 0% 0%, rgba(200,146,42,0.2) 0%, transparent 60%);
-  }
-
-  .menu-box-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    position: relative;
-  }
-
-  .menu-box-name {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    margin-bottom: 10px;
-  }
-
-  .menu-box-desc {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 15px;
-    color: rgba(247,242,235,0.75);
-    line-height: 1.65;
-    max-width: 520px;
-    position: relative;
-  }
-
-  .menu-box-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
-    font-size: 28px;
-    color: #fff;
-    white-space: nowrap;
-    text-align: right;
-    position: relative;
-  }
-
-  .menu-box-price span {
-    display: block;
-    font-size: 10px;
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    margin-top: 2px;
-    font-weight: 400;
-  }
-
-  /* FOOTER */
-  .footer {
-    background: var(--dark);
-    text-align: center;
-    padding: 32px 20px;
-    margin-top: 60px;
-  }
-
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    letter-spacing: 0.25em;
-    color: rgba(255,255,255,0.5);
-  }
-
-  .footer-note {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-top: 8px;
-  }
+  .footer { background: var(--dark); text-align: center; padding: 32px 20px; margin-top: 60px; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; letter-spacing: 0.25em; color: rgba(255,255,255,0.5); }
+  .footer-note { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-top: 8px; }
 
   @media (max-width: 500px) {
     .sides-grid { grid-template-columns: 1fr; }
@@ -308,202 +67,68 @@
 </head>
 <body>
 
-<!-- HEADER -->
 <header class="header">
-  <div class="header-logo">TENHA</div>
-  <div class="header-sub">Wine &amp; Dine · Vienna</div>
-  <div class="header-divider"></div>
+  <img src="data:image/jpeg;base64,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" alt="TENHA Wine & Dine">
 </header>
 
 <div class="wrapper">
 
-  <!-- APPETIZER -->
   <div class="section">
     <h2 class="section-title">Appetizer</h2>
     <div class="section-rule"></div>
-
-    <div class="dish">
-      <div class="dish-left">
-        <div class="dish-name">Étagère per Person</div>
-        <div class="dish-desc">Mezze selection from our vitrine</div>
-      </div>
-      <div class="dish-price">
-        <div class="price-main">€ 22</div>
-        <span class="price-note">per person</span>
-      </div>
-    </div>
-
-    <div class="dish">
-      <div class="dish-left">
-        <div class="dish-name">Chili Prawns</div>
-        <div class="dish-desc">With garlic and fresh herbs</div>
-      </div>
-      <div class="dish-price"><div class="price-main">€ 24</div></div>
-    </div>
-
-    <div class="dish">
-      <div class="dish-left">
-        <div class="dish-name">Scallops</div>
-        <div class="dish-desc">Red beet risotto, walnut brittle</div>
-      </div>
-      <div class="dish-price"><div class="price-main">€ 24</div></div>
-    </div>
-
-    <div class="dish">
-      <div class="dish-left">
-        <div class="dish-name">Carpaccio</div>
-        <div class="dish-desc">Trentino salt beef, artichoke salad, parmesan &amp; spring onion</div>
-      </div>
-      <div class="dish-price"><div class="price-main">€ 20</div></div>
-    </div>
-
-    <div class="dish">
-      <div class="dish-left">
-        <div class="dish-name">Octopus Carpaccio</div>
-        <div class="dish-desc">Milto salad with pomegranate syrup</div>
-      </div>
-      <div class="dish-price"><div class="price-main">€ 22</div></div>
-    </div>
+    <div class="dish"><div class="dish-left"><div class="dish-name">Étagère per Person</div><div class="dish-desc">Mezze selection from our vitrine</div></div><div class="dish-price"><div class="price-main">€ 22</div><span class="price-note">per person</span></div></div>
+    <div class="dish"><div class="dish-left"><div class="dish-name">Chili Prawns</div><div class="dish-desc">With garlic and fresh herbs</div></div><div class="dish-price"><div class="price-main">€ 24</div></div></div>
+    <div class="dish"><div class="dish-left"><div class="dish-name">Scallops</div><div class="dish-desc">Red beet risotto, walnut brittle</div></div><div class="dish-price"><div class="price-main">€ 24</div></div></div>
+    <div class="dish"><div class="dish-left"><div class="dish-name">Carpaccio</div><div class="dish-desc">Trentino salt beef, artichoke salad, parmesan &amp; spring onion</div></div><div class="dish-price"><div class="price-main">€ 20</div></div></div>
+    <div class="dish"><div class="dish-left"><div class="dish-name">Octopus Carpaccio</div><div class="dish-desc">Milto salad with pomegranate syrup</div></div><div class="dish-price"><div class="price-main">€ 22</div></div></div>
   </div>
 
-  <!-- DAILY DEAL -->
   <div class="section">
     <h2 class="section-title">Daily Deal</h2>
     <div class="section-rule"></div>
-
-    <div class="sides-header">
-      <div class="dish-name">Whole Fish</div>
-      <div class="dish-desc">Served with your choice of fine sides</div>
-    </div>
-
+    <div class="sides-header"><div class="dish-name">Whole Fish</div><div class="dish-desc">Served with your choice of fine sides</div></div>
     <div class="sides-grid">
-      <div class="side-item">
-        <span class="side-name">Daily Risotto</span>
-        <span class="side-price">€ 8</span>
-      </div>
-      <div class="side-item">
-        <span class="side-name">Rosemary Potatoes</span>
-        <span class="side-price">€ 6</span>
-      </div>
-      <div class="side-item">
-        <span class="side-name">Leaf Spinach</span>
-        <span class="side-price">€ 7</span>
-      </div>
-      <div class="side-item">
-        <span class="side-name">Truffle Mash</span>
-        <span class="side-price">€ 8</span>
-      </div>
-      <div class="side-item">
-        <span class="side-name">Polenta</span>
-        <span class="side-price">€ 7</span>
-      </div>
-      <div class="side-item">
-        <span class="side-name">Mixed Leaf Salad</span>
-        <span class="side-price">€ 6.5</span>
-      </div>
+      <div class="side-item"><span class="side-name">Daily Risotto</span><span class="side-price">€ 8</span></div>
+      <div class="side-item"><span class="side-name">Rosemary Potatoes</span><span class="side-price">€ 6</span></div>
+      <div class="side-item"><span class="side-name">Leaf Spinach</span><span class="side-price">€ 7</span></div>
+      <div class="side-item"><span class="side-name">Truffle Mash</span><span class="side-price">€ 8</span></div>
+      <div class="side-item"><span class="side-name">Polenta</span><span class="side-price">€ 7</span></div>
+      <div class="side-item"><span class="side-name">Mixed Leaf Salad</span><span class="side-price">€ 6.5</span></div>
     </div>
   </div>
 
-  <!-- MAIN DISHES -->
   <div class="section">
     <h2 class="section-title">Main Dishes</h2>
     <div class="section-rule"></div>
-
-    <div class="dish">
-      <div class="dish-left">
-        <div class="dish-name">Sea Bass Fillet</div>
-        <div class="dish-desc">Spinach potatoes, sheep's cheese</div>
-      </div>
-      <div class="dish-price"><div class="price-main">€ 34</div></div>
-    </div>
-
-    <div class="dish">
-      <div class="dish-left">
-        <div class="dish-name">Black Tiger Prawns</div>
-        <div class="dish-desc">Truffle mash, balsamic tomatoes</div>
-      </div>
-      <div class="dish-price"><div class="price-main">€ 36</div></div>
-    </div>
-
-    <div class="dish">
-      <div class="dish-left">
-        <div class="dish-name">Rack of Lamb</div>
-        <div class="dish-desc">Zucchini and corn risotto</div>
-      </div>
-      <div class="dish-price"><div class="price-main">€ 36</div></div>
-    </div>
-
-    <div class="dish">
-      <div class="dish-left">
-        <div class="dish-name">Atlantic Octopus</div>
-        <div class="dish-desc">Fregola Sarda, aioli</div>
-      </div>
-      <div class="dish-price"><div class="price-main">€ 34</div></div>
-    </div>
-
-    <div class="dish">
-      <div class="dish-left">
-        <div class="dish-name">Venison Saddle</div>
-        <div class="dish-desc">Pan-fried curd dumplings, leek &amp; caper vegetables</div>
-      </div>
-      <div class="dish-price"><div class="price-main">€ 38</div></div>
-    </div>
+    <div class="dish"><div class="dish-left"><div class="dish-name">Sea Bass Fillet</div><div class="dish-desc">Spinach potatoes, sheep's cheese</div></div><div class="dish-price"><div class="price-main">€ 34</div></div></div>
+    <div class="dish"><div class="dish-left"><div class="dish-name">Black Tiger Prawns</div><div class="dish-desc">Truffle mash, balsamic tomatoes</div></div><div class="dish-price"><div class="price-main">€ 36</div></div></div>
+    <div class="dish"><div class="dish-left"><div class="dish-name">Rack of Lamb</div><div class="dish-desc">Zucchini and corn risotto</div></div><div class="dish-price"><div class="price-main">€ 36</div></div></div>
+    <div class="dish"><div class="dish-left"><div class="dish-name">Atlantic Octopus</div><div class="dish-desc">Fregola Sarda, aioli</div></div><div class="dish-price"><div class="price-main">€ 34</div></div></div>
+    <div class="dish"><div class="dish-left"><div class="dish-name">Venison Saddle</div><div class="dish-desc">Pan-fried curd dumplings, leek &amp; caper vegetables</div></div><div class="dish-price"><div class="price-main">€ 38</div></div></div>
   </div>
 
-  <!-- MENUS -->
   <div class="section">
     <h2 class="section-title">Menus</h2>
     <div class="section-rule"></div>
-
     <div class="menu-box">
       <div class="menu-box-top">
-        <div>
-          <div class="menu-box-name">TENHA Chaostable Menu</div>
-        </div>
-        <div class="menu-box-price">
-          € 76
-          <span>per person</span>
-        </div>
+        <div><div class="menu-box-name">TENHA Chaostable Menu</div></div>
+        <div class="menu-box-price">€ 76<span>per person</span></div>
       </div>
-      <p class="menu-box-desc">
-        We begin with appetizers from our vitrine, followed by plates and sharing dishes of our specialties. A selection of our desserts brings the sweet finale. All dishes are shared — the Chaostable Menu is ordered for the entire table.
-      </p>
+      <p class="menu-box-desc">We begin with appetizers from our vitrine, followed by plates and sharing dishes of our specialties. A selection of our desserts brings the sweet finale. All dishes are shared — the Chaostable Menu is ordered for the entire table.</p>
     </div>
   </div>
 
-  <!-- DESSERT -->
   <div class="section">
     <h2 class="section-title">Dessert</h2>
     <div class="section-rule"></div>
-
-    <div class="dish">
-      <div class="dish-left">
-        <div class="dish-name">Étagère</div>
-        <div class="dish-desc">Sweet Dream — price for 2 persons</div>
-      </div>
-      <div class="dish-price"><div class="price-main">€ 22</div></div>
-    </div>
-
-    <div class="dish">
-      <div class="dish-left">
-        <div class="dish-name">Gerry's Basil Ice Cream</div>
-        <div class="dish-desc">Plum compote, peanut</div>
-      </div>
-      <div class="dish-price"><div class="price-main">€ 9</div></div>
-    </div>
-
-    <div class="dish">
-      <div class="dish-left">
-        <div class="dish-name">Chocolate Art</div>
-        <div class="dish-desc">Mango sorbet</div>
-      </div>
-      <div class="dish-price"><div class="price-main">€ 9</div></div>
-    </div>
+    <div class="dish"><div class="dish-left"><div class="dish-name">Étagère</div><div class="dish-desc">Sweet Dream — price for 2 persons</div></div><div class="dish-price"><div class="price-main">€ 22</div></div></div>
+    <div class="dish"><div class="dish-left"><div class="dish-name">Gerry's Basil Ice Cream</div><div class="dish-desc">Plum compote, peanut</div></div><div class="dish-price"><div class="price-main">€ 9</div></div></div>
+    <div class="dish"><div class="dish-left"><div class="dish-name">Chocolate Art</div><div class="dish-desc">Mango sorbet</div></div><div class="dish-price"><div class="price-main">€ 9</div></div></div>
   </div>
 
 </div>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-logo">TENHA</div>
   <div class="footer-note">Wine &amp; Dine · Vienna · tenha.at</div>
